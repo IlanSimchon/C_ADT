@@ -16,9 +16,11 @@ mem_test: demo
 
 demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
+my_demo: myDemo.o $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $^ -o my_demo
 
 %.o: %.c $(HEADERS)
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
 
 clean:
-	rm -f *.o demo
+	rm -f *.o demo my_demo

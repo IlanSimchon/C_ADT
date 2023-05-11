@@ -42,6 +42,10 @@ Result SetAdptArrayAt(PAdptArray myAdpt, int index, PElement element){
     if(myAdpt) {
         if (myAdpt->size <= index) {
             PElement newPelem = (PElement)calloc((index + 1), sizeof(element));
+            if(newPelem == NULL) {
+                printf("error");
+                return FAIL;
+            }
             memcpy(newPelem, myAdpt->arr, myAdpt->size * sizeof(element));
             free(myAdpt->arr);
             myAdpt->arr = newPelem;
